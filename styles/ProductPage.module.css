@@ -18,8 +18,42 @@
 .item:last-child{
     flex: 1;
 }
+.infoProduct{
+    display: flex;
+    flex-direction: column;
+}
 .imgContainer{
     position: relative;
     width: 80%;
     height: 80%;
+}
+.title{
+    font-weight: 900;
+    font-size: 45px;
+    margin: 0;
+}
+.price{
+    color: var(--secundary-color);
+    font-weight: 700;
+    border-bottom: 3px solid var(--secundary-color);
+    width: max-content;
+}
+.infoButton{
+    margin: 20px 0;
+    border: none;
+    background-color: teal;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px 5px;
+    color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.socialMediaCont{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
 }

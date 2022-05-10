@@ -30,7 +30,11 @@ export default function Home({ products }) {
               <h2 className={styles.cardPrice}>U${product.attributes.price}</h2>
             </div>
             {/*<p className={styles.productDesc}>{product.attributes.desc}</p>*/}
-            <button className={styles.cardButton}>Add to cart</button>
+            <button className={styles.cardButton}>
+              <span className="material-symbols-outlined">
+                add_shopping_cart
+              </span>
+            </button>
           </div>
         ))}
       </div>

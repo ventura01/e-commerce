@@ -6,7 +6,7 @@ import Layout from "../components/Layout";
 const API_URL = "http://localhost:1337";
 
 const ProductPage = ({ product }) => {
-  console.log(product);
+  // console.log(product);
   return (
     <Layout>
       <div className={styles.container}>
@@ -25,8 +25,28 @@ const ProductPage = ({ product }) => {
         <div className={styles.item}>
           <div className={styles.infoProduct}>
             <h1 className={styles.title}>{product.attributes.title}</h1>
-            <p className={styles.desc}>{product.attributes.desc}</p>
             <h3 className={styles.price}>U${product.attributes.price}</h3>
+            <p className={styles.desc}>{product.attributes.desc}</p>
+            <button className={styles.infoButton}>
+              <span className="material-symbols-outlined">
+                add_shopping_cart
+              </span>
+            </button>
+            <div className={styles.socialMediaCont}>
+              <div className={styles.socialMediaIcon}>
+                <Image src="/img/meta.svg" alt="" width={25} height={25} />
+              </div>
+              <div className={styles.socialMediaIcon}>
+                <Image src="/img/twitch.svg" alt="" width={25} height={25} />
+              </div>
+              <div className={styles.socialMediaIcon}>
+                <Image src="/img/twitter.svg" alt="" width={25} height={25} />
+              </div>
+              <div className={styles.socialMediaIcon}>
+                <Image src="/img/instagram.svg" alt="" width={25} height={25} />
+              </div>
+              
+            </div>
           </div>
         </div>
       </div>

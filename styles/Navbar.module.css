@@ -38,20 +38,20 @@
     color: white;
 }
 .cart{
-    font-weight: 900;
+    font-weight: 500;
     position: relative;
     /* display: flex; */
     color: white;
 }
 .cartCounter{
     position: absolute;
-    height: 15px;
-    color: var(--primary-color);
+    height: 18px;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15px;
-    background-color: var(--secundary-color);
+    width: 18px;
+    background-color: teal;
     right: -9px;
     top: -5px;
     border-radius: 50%;
