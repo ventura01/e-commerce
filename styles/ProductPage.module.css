@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    height: calc(100vh - 54px);
+    padding: 50px;
+    background-color: white;
+}
+.item{
+
+    padding: 40px;
+}
+.item:first-child{
+    flex: 2;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.item:last-child{
+    flex: 1;
+}
+.imgContainer{
+    position: relative;
+    width: 80%;
+    height: 80%;
+}
