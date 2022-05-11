@@ -8,6 +8,11 @@
     position: sticky;
     z-index: 999;
 }
+.wrapper{
+    width: 1220px;
+    margin: 0 auto;
+    display: flex;
+}
 .logoText{
     color: var(--secundary-color);
 }
@@ -17,7 +22,7 @@
 .item{
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 .item:nth-child(2){

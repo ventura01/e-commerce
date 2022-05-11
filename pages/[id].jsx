@@ -21,6 +21,16 @@ const ProductPage = ({ product }) => {
               objectFit="contain"
             />
           </div>
+          {/*<div className={styles.imgContainer}>
+            <Image
+              src={`${API_URL}${product.attributes.img.data[1].attributes.url}`}
+              alt=""
+              // height={250}
+              // width={250}
+              layout="fill"
+              objectFit="contain"
+            />
+  </div>*/}
         </div>
         <div className={styles.item}>
           <div className={styles.infoProduct}>
@@ -34,16 +44,16 @@ const ProductPage = ({ product }) => {
             </button>
             <div className={styles.socialMediaCont}>
               <div className={styles.socialMediaIcon}>
-                <Image src="/img/meta.svg" alt="" width={25} height={25} />
+                <Image src="/img/meta.svg" alt="" width={20} height={20} />
               </div>
               <div className={styles.socialMediaIcon}>
-                <Image src="/img/twitch.svg" alt="" width={25} height={25} />
+                <Image src="/img/twitch.svg" alt="" width={20} height={20} />
               </div>
               <div className={styles.socialMediaIcon}>
-                <Image src="/img/twitter.svg" alt="" width={25} height={25} />
+                <Image src="/img/twitter.svg" alt="" width={20} height={20} />
               </div>
               <div className={styles.socialMediaIcon}>
-                <Image src="/img/instagram.svg" alt="" width={25} height={25} />
+                <Image src="/img/instagram.svg" alt="" width={20} height={20} />
               </div>
               
             </div>
