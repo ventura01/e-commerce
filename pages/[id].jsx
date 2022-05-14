@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import styles from "../styles/ProductPage.module.css";
 import Layout from "../components/Layout";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../redux/cartSlice";
 
 const API_URL = "http://localhost:1337";
 
 const ProductPage = ({ product }) => {
-  // console.log(product);
+  const [price, setPrice] = useState(product.attributes.price);
+  const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState("XS");
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(addProduct({ ...product, price, quantity, size }));
+    console.log(price, quantity, size);
+  };
   return (
     <Layout>
       <div className={styles.container}>
@@ -35,13 +44,45 @@ const ProductPage = ({ product }) => {
         <div className={styles.item}>
           <div className={styles.infoProduct}>
             <h1 className={styles.title}>{product.attributes.title}</h1>
-            <h3 className={styles.price}>U${product.attributes.price}</h3>
+            <h3 className={styles.price}>U${price}</h3>
             <p className={styles.desc}>{product.attributes.desc}</p>
-            <button className={styles.infoButton}>
-              <span className="material-symbols-outlined">
-                add_shopping_cart
-              </span>
-            </button>
+            <span className={styles.infoText}>
+              Choose your Size and Quantity
+            </span>
+            <div className={styles.add}>
+              <div className={styles.contSelect}>
+                <select
+                  onChange={(e) => setSize(e.target.value)}
+                  className={styles.select}
+                  name="select"
+                >
+                  <option value="xs">XS</option>
+                  <option defaultValue="s" value="s">
+                    S
+                  </option>
+                  <option value="m">M</option>
+                  <option value="l">L</option>
+                  <option value="xl">XL</option>
+                </select>
+              </div>
+              <div className={styles.contInput}>
+                <input
+                  type="number"
+                  name="qty"
+                  id="qty"
+                  className={styles.quantity}
+                  defaultValue={1}
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className={styles.contButton}>
+              <button onClick={handleClick} className={styles.infoButton}>
+                <span className="material-symbols-outlined">
+                  add_shopping_cart
+                </span>
+              </button>
+            </div>
             <div className={styles.socialMediaCont}>
               <div className={styles.socialMediaIcon}>
                 <Image src="/img/meta.svg" alt="" width={20} height={20} />
@@ -55,7 +96,6 @@ const ProductPage = ({ product }) => {
               <div className={styles.socialMediaIcon}>
                 <Image src="/img/instagram.svg" alt="" width={20} height={20} />
               </div>
-              
             </div>
           </div>
         </div>

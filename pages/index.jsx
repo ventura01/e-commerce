@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Header from "../components/Header";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
@@ -8,6 +9,7 @@ export default function Home({ products }) {
   const API_URL = "http://localhost:1337";
   return (
     <Layout title="Home" description="Tienda Github en línea.">
+      <Header />
       <div className={styles.container}>
         {products.data.map((product) => (
           <div className={styles.card} key={product.id}>
@@ -30,11 +32,10 @@ export default function Home({ products }) {
               <h2 className={styles.cardPrice}>U${product.attributes.price}</h2>
             </div>
             {/*<p className={styles.productDesc}>{product.attributes.desc}</p>*/}
-            <button className={styles.cardButton}>
-              <span className="material-symbols-outlined">
-                add_shopping_cart
-              </span>
-            </button>
+            {/*<button className={styles.cardButton}>
+              See more 
+              <span className="material-symbols-outlined">arrow_right_alt</span>
+        </button>*/}
           </div>
         ))}
       </div>

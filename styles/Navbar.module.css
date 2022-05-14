@@ -45,8 +45,8 @@
 .cart{
     font-weight: 500;
     position: relative;
-    /* display: flex; */
     color: white;
+    cursor: pointer;
 }
 .cartCounter{
     position: absolute;

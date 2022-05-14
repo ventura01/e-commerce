@@ -1,7 +1,7 @@
 .container{
     display: flex;
     height: calc(100vh - 54px);
-    padding: 50px;
+    padding: 10px;
     background-color: white;
 }
 .item{
@@ -38,7 +38,29 @@
     border-bottom: 3px solid var(--secundary-color);
     width: max-content;
 }
+.infoText{
+    text-align: center;
+    font-weight: bold;
+}
+.add{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.select{
+    width: 160px;
+    height: 40px;
+    margin-right: 10px;
+}
+.quantity{
+    width: 160px;
+    height: 40px;
+}
 .infoButton{
+    width: 100%;
+    cursor: pointer;
     margin: 20px 0;
     border: none;
     background-color: teal;
