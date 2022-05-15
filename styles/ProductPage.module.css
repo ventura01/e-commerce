@@ -1,16 +1,16 @@
 .container{
     display: flex;
-    height: calc(100vh - 54px);
+    height: auto;
     padding: 10px;
     background-color: white;
 }
 .item{
 
     padding: 40px;
+    height: auto;
 }
 .item:first-child{
     flex: 2;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,27 +38,34 @@
     border-bottom: 3px solid var(--secundary-color);
     width: max-content;
 }
-.infoText{
+/* .infoText{
     text-align: center;
     font-weight: bold;
-}
+} */
 .add{
     margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    /* width: 100%; */
 }
-.select{
-    width: 160px;
+.contSelect, .contInput{
+    display: flex;
+    flex-direction: column;
+}
+.sizeSelect{
+    width: 140px;
     height: 40px;
     margin-right: 10px;
 }
-.quantity{
-    width: 160px;
+.qtyInput{
+    width: 140px;
     height: 40px;
 }
-.infoButton{
+.selectLabel, .qtyLabel{
+    font-weight: bold;
+}
+.addButton{
     width: 100%;
     cursor: pointer;
     margin: 20px 0;
@@ -78,4 +85,11 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 10px;
+}
+.backButton{
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
 }

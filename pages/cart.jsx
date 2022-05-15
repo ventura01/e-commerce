@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "../styles/Cart.module.css";
 import { useSelector, useDispatch } from "react-redux";
 
-const cart = () => {
+const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const API_URL = "http://localhost:1337";
@@ -92,4 +92,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;
