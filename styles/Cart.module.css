@@ -7,8 +7,8 @@
     display: flex;
 }
 .imgContainer{
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
     position: relative;
 }
 .left{
@@ -40,6 +40,13 @@
 .size{
     color: gray;
 }
+.color{
+    color: gray;
+}
+.sizeColorCont{
+    font-size: 14px;
+
+}
 .total{
     font-weight: bold;
     font-size: 18px;
@@ -58,6 +65,10 @@
     flex-direction: column;
     justify-content: space-between;
     color: white;
+}
+.title{
+    font-weight: 900;
+    text-align: center;
 }
 .totalTextTitle{
     margin-right: 15px;

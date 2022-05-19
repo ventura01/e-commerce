@@ -11,10 +11,11 @@ const API_URL = "http://localhost:1337";
 const ProductPage = ({ product }) => {
   const [price, setPrice] = useState(product.attributes.price);
   const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = useState("XS");
+  const [size, setSize] = useState("S");
+  const [color, setColor] = useState("BLACK");
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(addProduct({ ...product, price, quantity, size }));
+    dispatch(addProduct({ ...product, price, quantity, size, color }));
     console.log(price, quantity, size);
   };
   return (
@@ -51,23 +52,43 @@ const ProductPage = ({ product }) => {
               Choose your Size and Quantity
 </span>*/}
             <div className={styles.add}>
-              <div className={styles.contSelect}>
-                <label className={styles.selectLabel} htmlFor="select">
-                  Size
-                </label>
-                <select
-                  onChange={(e) => setSize(e.target.value)}
-                  className={styles.sizeSelect}
-                  name="select"
-                >
-                  <option value="XS">XS</option>
-                  <option defaultValue="S" value="s">
-                    S
-                  </option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                  <option value="XL">XL</option>
-                </select>
+              <div className={styles.selectsContainer}>
+                <div className={styles.contSelect}>
+                  <label className={styles.selectLabel} htmlFor="select">
+                    Size
+                  </label>
+                  <select
+                    onChange={(e) => setSize(e.target.value)}
+                    className={styles.sizeSelect}
+                    name="select"
+                  >
+                    <option value="XS">XS</option>
+                    <option defaultValue="S" value="S">
+                      S
+                    </option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                  </select>
+                </div>
+                <div className={styles.contSelect}>
+                  <label className={styles.colorLabel} htmlFor="colorSelect">
+                    Color
+                  </label>
+                  <select
+                    onChange={(e) => setColor(e.target.value)}
+                    className={styles.colorSelect}
+                    name="colorSelect"
+                  >
+                    <option value="BLACK">BLACK</option>
+                    <option defaultValue="WHITE" value="WHITE">
+                      WHITE
+                    </option>
+                    <option value="BLUE">BLUE</option>
+                    <option value="RED">RED</option>
+                    <option value="PINK">PINK</option>
+                  </select>
+                </div>
               </div>
               <div className={styles.contInput}>
                 <label className={styles.qtyLabel} htmlFor="qty">

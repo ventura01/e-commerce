@@ -48,21 +48,34 @@
     align-items: center;
     justify-content: space-between;
     /* width: 100%; */
+    flex-wrap: wrap;
+}
+.selectsContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 .contSelect, .contInput{
     display: flex;
     flex-direction: column;
 }
 .sizeSelect{
-    width: 140px;
+    width: 160px;
     height: 40px;
-    margin-right: 10px;
+}
+.colorSelect{
+    width: 160px;
+    height: 40px;
+}
+.contInput{
+    margin-top: 10px;
+    width: 100%;
 }
 .qtyInput{
-    width: 140px;
+    width: 100%;
     height: 40px;
 }
-.selectLabel, .qtyLabel{
+.selectLabel, .qtyLabel, .colorLabel{
     font-weight: bold;
 }
 .addButton{

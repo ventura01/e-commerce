@@ -42,9 +42,15 @@ const Cart = () => {
                         <span className={styles.name}>
                           {product.attributes.title}
                         </span>
-                        <div>
-                          Size:{" "}
-                          <span className={styles.size}>{product.size}</span>
+                        <div className={styles.sizeColorCont}>
+                          <div>
+                            Size:
+                            <span className={styles.size}>{product.size}</span>
+                          </div>
+                          <div>
+                            Color:
+                            <span className={styles.color}>{product.color}</span>
+                          </div>
                         </div>
                         <div className={styles.deleteIcon}>
                           <span className="material-symbols-outlined">
