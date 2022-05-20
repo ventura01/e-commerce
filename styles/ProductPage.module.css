@@ -1,4 +1,6 @@
 .container{
+    width: 1220px;
+    margin: 50px auto;
     display: flex;
     height: auto;
     padding: 10px;

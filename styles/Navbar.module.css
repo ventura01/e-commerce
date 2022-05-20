@@ -14,7 +14,8 @@
     display: flex;
 }
 .logoText{
-    color: var(--secundary-color);
+    color: white;
+    font-weight: 300;
 }
 .logo{
     color: white;

@@ -10,23 +10,24 @@ const Navbar = () => {
     <nav className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.item}>
-          <h3 className={styles.logo}>
-            <span className={styles.logoText}>GitHub</span>shop
-          </h3>
+          <Link href="/" passHref>
+            <a>
+              <h3 className={styles.logo}>
+                <span className={styles.logoText}>GitHub</span>shop
+              </h3>
+            </a>
+          </Link>
         </div>
         <div className={styles.item}>
           <div className={styles.menuLinks}>
             <Link href="/">
               <a className={styles.menuItemLink}>Home</a>
             </Link>
-            <Link href="/services">
-              <a className={styles.menuItemLink}>Services</a>
+            <Link href="/contact">
+              <a className={styles.menuItemLink}>Contact</a>
             </Link>
             <Link href="/faq">
               <a className={styles.menuItemLink}>FAQ</a>
-            </Link>
-            <Link href="/contact">
-              <a className={styles.menuItemLink}>Contact</a>
             </Link>
           </div>
         </div>

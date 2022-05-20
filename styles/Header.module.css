@@ -1,3 +1,45 @@
 .container{
-    /* background-color: blueviolet; */
+    height: calc(100vh - 54px);
+    display: flex;
+    background-color: rgb(196, 153, 12);
+}
+.wrapper{
+    width: 1220px;
+    margin: 50px auto;
+    display: flex;
+}
+.left{
+    flex: 1;
+    padding: 20px;
+    padding-top: 100px;
+}
+.right{
+    flex: 2;
+    position: relative;
+}
+.textCont{
+    color: white;
+    margin-top: 20px;
+}
+.title{
+    font-size: 48px;
+    font-weight: 900;
+    margin: 0;
+}
+.desc{
+    font-size: 22px;
+}
+.button{
+    border: none;
+    margin-top: 20px;
+    padding: 15px 20px;
+    background-color: teal;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Layout from "../components/Layout";
 import Image from "next/image";
 import styles from "../styles/Cart.module.css";
@@ -49,7 +50,9 @@ const Cart = () => {
                           </div>
                           <div>
                             Color:
-                            <span className={styles.color}>{product.color}</span>
+                            <span className={styles.color}>
+                              {product.color}
+                            </span>
                           </div>
                         </div>
                         <div className={styles.deleteIcon}>
@@ -75,6 +78,15 @@ const Cart = () => {
                   </tr>
                 ))}
               </tbody>
+              <tfoot className={styles.tFooter}>
+                <tr className={styles.trFooter}>
+                  <td colSpan="4">
+                    <Link href="/">
+                      <a>Add more products</a>
+                    </Link>
+                  </td>
+                </tr>
+              </tfoot>
             </table>
           </div>
           <div className={styles.right}>
