@@ -4,6 +4,8 @@ import React from "react";
 import styles from "../styles/Navbar.module.css";
 import { useSelector } from "react-redux";
 
+import { BsFillBasket2Fill } from "react-icons/bs";
+
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
   return (
@@ -34,7 +36,7 @@ const Navbar = () => {
         <div className={styles.item}>
           <Link passHref href="/cart">
             <div className={styles.cart}>
-              <span className="material-symbols-outlined">shopping_bag</span>
+              <BsFillBasket2Fill color="white" size="1.25rem" />
               <div className={styles.cartCounter}>{quantity}</div>
             </div>
           </Link>

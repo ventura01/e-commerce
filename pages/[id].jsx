@@ -6,6 +6,9 @@ import Layout from "../components/Layout";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../redux/cartSlice";
 
+import { IconContext } from "react-icons";
+import { BsFacebook, BsTwitter, BsTwitch, BsInstagram, BsFillArrowLeftCircleFill } from "react-icons/bs";
+
 const API_URL = "http://localhost:1337";
 
 const ProductPage = ({ product }) => {
@@ -19,125 +22,125 @@ const ProductPage = ({ product }) => {
     console.log(price, quantity, size);
   };
   return (
-    <Layout>
-      <div className={styles.container}>
-        <div className={styles.item}>
-          <div className={styles.imgContainer}>
-            <Image
-              src={`${API_URL}${product.attributes.img.data[0].attributes.url}`}
-              alt=""
-              // height={250}
-              // width={250}
-              layout="fill"
-              objectFit="contain"
-            />
+    <IconContext.Provider value={{ color: "gray", size: "1rem" }}>
+      <Layout>
+        <div className={styles.container}>
+          <div className={styles.item}>
+            <div className={styles.imgContainer}>
+              <Image
+                src={`${API_URL}${product.attributes.img.data[0].attributes.url}`}
+                alt=""
+                // height={250}
+                // width={250}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+            {/*<div className={styles.imgContainer}>
+              <Image
+                src={`${API_URL}${product.attributes.img.data[1].attributes.url}`}
+                alt=""
+                // height={250}
+                // width={250}
+                layout="fill"
+                objectFit="contain"
+              />
+        </div>*/}
           </div>
-          {/*<div className={styles.imgContainer}>
-            <Image
-              src={`${API_URL}${product.attributes.img.data[1].attributes.url}`}
-              alt=""
-              // height={250}
-              // width={250}
-              layout="fill"
-              objectFit="contain"
-            />
-  </div>*/}
-        </div>
-        <div className={styles.item}>
-          <div className={styles.infoProduct}>
-            <h1 className={styles.title}>{product.attributes.title}</h1>
-            <h3 className={styles.price}>U${price}</h3>
-            <p className={styles.desc}>{product.attributes.desc}</p>
-            {/*<span className={styles.infoText}>
-              Choose your Size and Quantity
-</span>*/}
-            <div className={styles.add}>
-              <div className={styles.selectsContainer}>
-                <div className={styles.contSelect}>
-                  <label className={styles.selectLabel} htmlFor="select">
-                    Size
-                  </label>
-                  <select
-                    onChange={(e) => setSize(e.target.value)}
-                    className={styles.sizeSelect}
-                    name="select"
-                  >
-                    <option value="XS">XS</option>
-                    <option defaultValue="S" value="S">
-                      S
-                    </option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                  </select>
+          <div className={styles.item}>
+            <div className={styles.infoProduct}>
+              <h1 className={styles.title}>{product.attributes.title}</h1>
+              <h3 className={styles.price}>U${price}</h3>
+              <p className={styles.desc}>{product.attributes.desc}</p>
+              {/*<span className={styles.infoText}>
+                Choose your Size and Quantity
+      </span>*/}
+              <div className={styles.add}>
+                <div className={styles.selectsContainer}>
+                  <div className={styles.contSelect}>
+                    <label className={styles.selectLabel} htmlFor="select">
+                      Size
+                    </label>
+                    <select
+                      onChange={(e) => setSize(e.target.value)}
+                      className={styles.sizeSelect}
+                      name="select"
+                    >
+                      <option value="XS">XS</option>
+                      <option defaultValue="S" value="S">
+                        S
+                      </option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                    </select>
+                  </div>
+                  <div className={styles.contSelect}>
+                    <label className={styles.colorLabel} htmlFor="colorSelect">
+                      Color
+                    </label>
+                    <select
+                      onChange={(e) => setColor(e.target.value)}
+                      className={styles.colorSelect}
+                      name="colorSelect"
+                    >
+                      <option value="BLACK">BLACK</option>
+                      <option defaultValue="WHITE" value="WHITE">
+                        WHITE
+                      </option>
+                      <option value="BLUE">BLUE</option>
+                      <option value="RED">RED</option>
+                      <option value="PINK">PINK</option>
+                    </select>
+                  </div>
                 </div>
-                <div className={styles.contSelect}>
-                  <label className={styles.colorLabel} htmlFor="colorSelect">
-                    Color
+                <div className={styles.contInput}>
+                  <label className={styles.qtyLabel} htmlFor="qty">
+                    Quantity
                   </label>
-                  <select
-                    onChange={(e) => setColor(e.target.value)}
-                    className={styles.colorSelect}
-                    name="colorSelect"
-                  >
-                    <option value="BLACK">BLACK</option>
-                    <option defaultValue="WHITE" value="WHITE">
-                      WHITE
-                    </option>
-                    <option value="BLUE">BLUE</option>
-                    <option value="RED">RED</option>
-                    <option value="PINK">PINK</option>
-                  </select>
+                  <input
+                    type="number"
+                    name="qty"
+                    id="qty"
+                    className={styles.qtyInput}
+                    defaultValue={1}
+                    onChange={(e) => setQuantity(e.target.value)}
+                  />
                 </div>
               </div>
-              <div className={styles.contInput}>
-                <label className={styles.qtyLabel} htmlFor="qty">
-                  Quantity
-                </label>
-                <input
-                  type="number"
-                  name="qty"
-                  id="qty"
-                  className={styles.qtyInput}
-                  defaultValue={1}
-                  onChange={(e) => setQuantity(e.target.value)}
-                />
-              </div>
-            </div>
-            <div className={styles.contButton}>
-              <button onClick={handleClick} className={styles.addButton}>
-                <span className="material-symbols-outlined">
-                  add_shopping_cart
-                </span>
-              </button>
-            </div>
-            <div className={styles.socialMediaCont}>
-              {/*<div className={styles.socialMediaIcon}>
-                <Image src="/img/meta.svg" alt="" width={20} height={20} />
-</div>*/}
-              <div className={styles.socialMediaIcon}>
-                <Image src="/img/twitch.svg" alt="" width={20} height={20} />
-              </div>
-              <div className={styles.socialMediaIcon}>
-                <Image src="/img/twitter.svg" alt="" width={20} height={20} />
-              </div>
-              <div className={styles.socialMediaIcon}>
-                <Image src="/img/instagram.svg" alt="" width={20} height={20} />
-              </div>
-            </div>
-            <Link href="/" passHref>
-              <div className={styles.backButton}>
-                <a>
+              <div className={styles.contButton}>
+                <button onClick={handleClick} className={styles.addButton}>
                   <span className="material-symbols-outlined">
-                    arrow_circle_left
+                    add_shopping_cart
                   </span>
-                </a>
+                </button>
               </div>
-            </Link>
+              <div className={styles.socialMediaCont}>
+                <div className={styles.socialMediaIcon}>
+                  <BsFacebook />
+                </div>
+                <div className={styles.socialMediaIcon}>
+                  <BsTwitter />
+                </div>
+                <div className={styles.socialMediaIcon}>
+                  <BsTwitch />
+                </div>
+                <div className={styles.socialMediaIcon}>
+                  <BsInstagram />
+                </div>
+              </div>
+              <Link href="/" passHref>
+                <div className={styles.backButton}>
+                  <a>
+                    <BsFillArrowLeftCircleFill color="black" size="1.5rem"/>
+                  </a>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </IconContext.Provider>
   );
 };
 

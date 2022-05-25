@@ -8,6 +8,16 @@
 .sideWrapper{
     display: flex;
 }
+.cartEmpty{
+    height: calc(100vh - 216px - 54px);
+}
+.emptyWrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .imgContainer{
     width: 100px;
     height: 100px;
@@ -55,7 +65,7 @@
 }
 .deleteIcon{
     color: gray;
-    font-size: 12px;
+    cursor: pointer;
 }
 .wrapper{
     width: 90%;

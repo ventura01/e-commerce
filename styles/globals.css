@@ -1,5 +1,5 @@
 :root{
-  --primary-color: #1a1c2e;
+  --primary-color: #242424;
   --secundary-color: #b7903c;
 }
 html,
@@ -11,7 +11,9 @@ body {
     font-family: 'Nunito', sans-serif;
     background-color: #efefef;
 }
+/* Mantener el FOOTER siempre abajo */
 
+/* ====================================== */
 a {
   color: inherit;
   text-decoration: none;
