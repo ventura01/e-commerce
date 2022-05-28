@@ -4,21 +4,28 @@ import styles from "../styles/ProductPage.module.css";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../redux/cartSlice";
+import { addItemToCart } from "../redux/cartSlice";
 
 import { IconContext } from "react-icons";
-import { BsFacebook, BsTwitter, BsTwitch, BsInstagram, BsFillArrowLeftCircleFill } from "react-icons/bs";
+import {
+  BsFacebook,
+  BsTwitter,
+  BsTwitch,
+  BsInstagram,
+  BsArrowLeft,
+} from "react-icons/bs";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
 
 const API_URL = "http://localhost:1337";
 
 const ProductPage = ({ product }) => {
   const [price, setPrice] = useState(product.attributes.price);
   const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = useState("S");
+  const [size, setSize] = useState("XS");
   const [color, setColor] = useState("BLACK");
   const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(addProduct({ ...product, price, quantity, size, color }));
+  const handleAddItemToCart = (product) => {
+    dispatch(addItemToCart({ ...product, price, quantity, size, color }));
     console.log(price, quantity, size);
   };
   return (
@@ -109,10 +116,11 @@ const ProductPage = ({ product }) => {
                 </div>
               </div>
               <div className={styles.contButton}>
-                <button onClick={handleClick} className={styles.addButton}>
-                  <span className="material-symbols-outlined">
-                    add_shopping_cart
-                  </span>
+                <button
+                  onClick={() => handleAddItemToCart(product)}
+                  className={styles.addButton}
+                >
+                  <MdOutlineAddShoppingCart color="white" size="1.5rem" />
                 </button>
               </div>
               <div className={styles.socialMediaCont}>
@@ -132,7 +140,7 @@ const ProductPage = ({ product }) => {
               <Link href="/" passHref>
                 <div className={styles.backButton}>
                   <a>
-                    <BsFillArrowLeftCircleFill color="black" size="1.5rem"/>
+                    <BsArrowLeft /> Add more products
                   </a>
                 </div>
               </Link>

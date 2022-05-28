@@ -4,13 +4,18 @@ import Layout from "../components/Layout";
 import Image from "next/image";
 import styles from "../styles/Cart.module.css";
 import { useSelector, useDispatch } from "react-redux";
+import { removeItemFromCart } from "../redux/cartSlice";
 
 import { BsFillTrashFill, BsFillBasket2Fill } from "react-icons/bs";
+import { MdRemoveShoppingCart } from "react-icons/md";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
-  const quantity = useSelector((state) => state.cart.quantity);
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeItemFromCart(product));
+  };
+  const quantity = useSelector((state) => state.cart.cartTotalQuantity);
   console.log(quantity);
   const API_URL = "http://localhost:1337";
   return (
@@ -18,10 +23,10 @@ const Cart = () => {
       {quantity === 0 ? (
         <div className={styles.cartEmpty}>
           <div className={styles.emptyWrapper}>
-            <BsFillBasket2Fill size="4rem" color="grey" title="Empty bag" />
+            <MdRemoveShoppingCart size="4rem" color="grey" title="Empty bag" />
             <p className={styles.text}>Your cart is empty.</p>
             <Link href="/" passHref>
-              <a className={styles.text}>Add some product</a>
+              <a className={styles.addProductsBtn}>Add some product</a>
             </Link>
           </div>
         </div>
@@ -33,18 +38,18 @@ const Cart = () => {
               <table className={styles.table}>
                 <thead className={styles.thead}>
                   <tr className={styles.trHead}>
-                    <th>Product</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                    <th>Actions</th>
+                    <th className={styles.thHead}>Product</th>
+                    <th className={styles.thHead}>Name</th>
+                    <th className={styles.thHead}>Price</th>
+                    <th className={styles.thHead}>Quantity</th>
+                    <th className={styles.thHead}>Total</th>
+                    <th className={styles.thHead}>Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {cart.products.map((product) => (
-                    <tr className={styles.tr} key={product.id}>
-                      <td>
+                <tbody className={styles.tbody}>
+                  {cart.cartItems.map((product) => (
+                    <tr className={styles.trBody} key={product.id}>
+                      <td className={styles.tdBody}>
                         <div className={styles.imgContainer}>
                           <Image
                             src={`${API_URL}${product.attributes.img.data[0].attributes.url}`}
@@ -54,42 +59,50 @@ const Cart = () => {
                           ></Image>
                         </div>
                       </td>
-                      <td>
+                      <td className={styles.tdBody}>
                         <div className={styles.tdInfo}>
                           <span className={styles.name}>
                             {product.attributes.title}
                           </span>
                           <div className={styles.sizeColorCont}>
                             <div>
-                              Size:
+                              Size:{" "}
                               <span className={styles.size}>
                                 {product.size}
                               </span>
                             </div>
                             <div>
-                              Color:
+                              Color:{" "}
                               <span className={styles.color}>
                                 {product.color}
                               </span>
                             </div>
                           </div>
-                          <div className={styles.deleteIcon}>
-                            <BsFillTrashFill size=".9rem" />
-                          </div>
                         </div>
                       </td>
-                      <td>
+                      <td className={styles.tdBody}>
                         <span className={styles.price}>
                           U${product.attributes.price}
                         </span>
                       </td>
-                      <td>
+                      <td className={styles.tdBody}>
+                        <div>
+                        <button className={styles.qtyButton}>-</button>
                         <span className={styles.qty}>{product.quantity}</span>
+                        <button className={styles.qtyButton}>+</button>
+                        </div>
                       </td>
-                      <td>
+                      <td className={styles.tdBody}>
                         <span className={styles.total}>
                           U${product.attributes.price * product.quantity}
                         </span>
+                      </td>
+                      <td className={styles.tdBody}>
+                        <div className={styles.deleteIcon}>
+                          <button onClick={() => handleRemoveFromCart(product)}>
+                            <BsFillTrashFill size=".9rem" />
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -110,13 +123,14 @@ const Cart = () => {
                 <h2 className={styles.title}>CART TOTAL</h2>
                 <div className={styles.totalText}>
                   <b className={styles.totalTextTitle}>Sub-total:</b>$
-                  {cart.total}
+                  {cart.cartTotalAmount}
                 </div>
                 <div className={styles.totalText}>
                   <b className={styles.totalTextTitle}>Discount:</b>$0.00
                 </div>
                 <div className={styles.totalText}>
-                  <b className={styles.totalTextTitle}>Total:</b>${cart.total}
+                  <b className={styles.totalTextTitle}>Total:</b>$
+                  {cart.cartTotalAmount}
                 </div>
                 <button className={styles.button}>CHECKOUT NOW!</button>
               </div>

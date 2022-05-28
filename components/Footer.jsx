@@ -34,7 +34,7 @@ const Footer = () => {
           </div>
           <div className={styles.center}>
             <p>
-              All rights reserved &copy; {months[month]}, {year}.
+              All rights reserved &copy; {months[month]}, {year}
             </p>
             {/*<ul className={styles.itemsList}>
               <li className={styles.listItem}>{year}</li>
