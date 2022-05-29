@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getTotals } from "../redux/cartSlice";
 import Image from "next/image";
 import styles from "../styles/ProductPage.module.css";
 import Link from "next/link";
 import Layout from "../components/Layout";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart } from "../redux/cartSlice";
 
 import { IconContext } from "react-icons";
@@ -19,14 +20,18 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 const API_URL = "http://localhost:1337";
 
 const ProductPage = ({ product }) => {
+  const cart = useSelector((state) => state.cart);
   const [price, setPrice] = useState(product.attributes.price);
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("XS");
   const [color, setColor] = useState("BLACK");
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
   const handleAddItemToCart = (product) => {
     dispatch(addItemToCart({ ...product, price, quantity, size, color }));
-    console.log(price, quantity, size);
+    console.log(price, quantity, size, color);
   };
   return (
     <IconContext.Provider value={{ color: "gray", size: "1rem" }}>
@@ -138,10 +143,10 @@ const ProductPage = ({ product }) => {
                 </div>
               </div>
               <Link href="/" passHref>
-                <div className={styles.backButton}>
-                  <a>
-                    <BsArrowLeft /> Add more products
-                  </a>
+                <div className={styles.continueShoppingBtnCont}>
+                  <button className={styles.continueShoppingBtn}>
+                    <BsArrowLeft /> Continue shopping
+                  </button>
                 </div>
               </Link>
             </div>

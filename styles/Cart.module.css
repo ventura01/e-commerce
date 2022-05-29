@@ -119,6 +119,61 @@
     cursor: pointer;
     margin-top: 20px;
 }
+.qtyContButton{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    border: .5px solid lightgray;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
 .qtyButton{
+    cursor: pointer;
+    background-color: transparent;
     border: none;
+}
+.deleteButton{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+.buttonsCont{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    margin-top: 10px;
+}
+.continueShoppingBtn{
+    border: 1px  solid teal;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: gray;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.continueShoppingBtn:hover{
+    background-color: teal;
+    color: white;
+}
+.clearCartButton{
+    border: 1px  solid red;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: gray;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.clearCartButton:hover{
+    background-color: red;
+    color: white;
 }

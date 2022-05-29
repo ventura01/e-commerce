@@ -1,19 +1,38 @@
 import React from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import Image from "next/image";
 import styles from "../styles/Cart.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { removeItemFromCart } from "../redux/cartSlice";
+import {
+  removeItemFromCart,
+  decreaseItemFromCart,
+  addItemToCart,
+  clearCart,
+  getTotals,
+} from "../redux/cartSlice";
 
-import { BsFillTrashFill, BsFillBasket2Fill } from "react-icons/bs";
+import { BsFillTrashFill, BsArrowLeft } from "react-icons/bs";
 import { MdRemoveShoppingCart } from "react-icons/md";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart, dispatch]);
   const handleRemoveFromCart = (product) => {
     dispatch(removeItemFromCart(product));
+  };
+  const handleDecreaseItemFromCart = (product) => {
+    dispatch(decreaseItemFromCart(product));
+  };
+  const handleIncreaseItemFromCart = (product) => {
+    dispatch(addItemToCart(product));
+  };
+  const handleClearCartButton = () => {
+    dispatch(clearCart());
   };
   const quantity = useSelector((state) => state.cart.cartTotalQuantity);
   console.log(quantity);
@@ -86,10 +105,20 @@ const Cart = () => {
                         </span>
                       </td>
                       <td className={styles.tdBody}>
-                        <div>
-                        <button className={styles.qtyButton}>-</button>
-                        <span className={styles.qty}>{product.quantity}</span>
-                        <button className={styles.qtyButton}>+</button>
+                        <div className={styles.qtyContButton}>
+                          <button
+                            className={styles.qtyButton}
+                            onClick={() => handleDecreaseItemFromCart(product)}
+                          >
+                            -
+                          </button>
+                          <span className={styles.qty}>{product.quantity}</span>
+                          <button
+                            className={styles.qtyButton}
+                            onClick={() => handleIncreaseItemFromCart(product)}
+                          >
+                            +
+                          </button>
                         </div>
                       </td>
                       <td className={styles.tdBody}>
@@ -99,24 +128,43 @@ const Cart = () => {
                       </td>
                       <td className={styles.tdBody}>
                         <div className={styles.deleteIcon}>
-                          <button onClick={() => handleRemoveFromCart(product)}>
-                            <BsFillTrashFill size=".9rem" />
+                          <button
+                            className={styles.deleteButton}
+                            onClick={() => handleRemoveFromCart(product)}
+                          >
+                            <BsFillTrashFill color="gray" size=".9rem" />
                           </button>
                         </div>
                       </td>
                     </tr>
                   ))}
                 </tbody>
-                <tfoot className={styles.tFooter}>
+                {/*<tfoot className={styles.tFooter}>
                   <tr className={styles.trFooter}>
-                    <td colSpan="4">
-                      <Link href="/">
-                        <a>Add more products</a>
-                      </Link>
-                    </td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
                   </tr>
-                </tfoot>
+                  </tfoot>*/}
               </table>
+              <div className={styles.buttonsCont}>
+                <Link href="/" passHref>
+                  <div className={styles.continueShoppingBtnCont}>
+                      <button className={styles.continueShoppingBtn}>
+                        <BsArrowLeft /> Continue shopping
+                      </button>
+                  </div>
+                </Link>
+                <div className={styles.clearCartButtonCont}>
+                  <button
+                    className={styles.clearCartButton}
+                    onClick={() => handleClearCartButton()}
+                  >
+                  <BsFillTrashFill size=".8rem" /> Clear cart
+                  </button>
+                </div>
+              </div>
             </div>
             <div className={styles.right}>
               <div className={styles.wrapper}>

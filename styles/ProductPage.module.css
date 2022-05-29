@@ -126,22 +126,20 @@
     align-items: center;
     margin-top: 10px;
 }
-.backButton{
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 50%;
+.continueShoppingBtn{
+    border: 1px  solid teal;
     padding: 10px 15px;
+    cursor: pointer;
+    background-color: transparent;
+    margin-top: 20px;
+    color: gray;
     border-radius: 5px;
-    margin-top: 40px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
-.backButton:hover{
-    background-color: lightgray;
-
+.continueShoppingBtn:hover{
+    background-color: teal;
+    color: white;
 }

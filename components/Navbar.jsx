@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 import { MdShoppingCart } from "react-icons/md";
 
 const Navbar = () => {
-  const quantity = useSelector((state) => state.cart.cartTotalQuantity);
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  console.log(cartTotalQuantity);
   return (
     <nav className={styles.container}>
       <div className={styles.wrapper}>
@@ -36,15 +37,14 @@ const Navbar = () => {
         <div className={styles.item}>
           <Link passHref href="/cart">
             <div className={styles.cart}>
-            {quantity >= 1 ? (
-              <div>
+              {cartTotalQuantity >= 1 ? (
+                <div>
+                  <MdShoppingCart color="white" size="1.25rem" />
+                  <div className={styles.cartCounter}>{cartTotalQuantity}</div>
+                </div>
+              ) : (
                 <MdShoppingCart color="white" size="1.25rem" />
-                <div className={styles.cartCounter}>{quantity}</div>
-              </div>
-            ): (
-              <MdShoppingCart color="white" size="1.25rem" />
-            )}
-              
+              )}
             </div>
           </Link>
         </div>
