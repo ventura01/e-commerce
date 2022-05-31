@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
 
@@ -18,7 +19,9 @@ const Header = () => {
               aliquid tempore quae sint debitis tempora eum omnis nisi magnam
               autem nostrum rem!
             </p>
-            <button className={styles.button}>More info...</button>
+            <Link href="/contact" passHref>
+              <button className={styles.button}>More info...</button>
+            </Link>
           </div>
         </div>
         <div className={styles.right}>

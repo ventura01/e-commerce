@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import Image from "next/image";
@@ -15,6 +15,7 @@ import {
 
 import { BsFillTrashFill, BsArrowLeft } from "react-icons/bs";
 import { MdRemoveShoppingCart } from "react-icons/md";
+import OrderDetail from "../components/OrderDetail";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Cart = () => {
   useEffect(() => {
     dispatch(getTotals());
   }, [cart, dispatch]);
+  const [cash, setCash] = useState(false);
   const handleRemoveFromCart = (product) => {
     dispatch(removeItemFromCart(product));
   };
@@ -151,9 +153,9 @@ const Cart = () => {
               <div className={styles.buttonsCont}>
                 <Link href="/" passHref>
                   <div className={styles.continueShoppingBtnCont}>
-                      <button className={styles.continueShoppingBtn}>
-                        <BsArrowLeft /> Continue shopping
-                      </button>
+                    <button className={styles.continueShoppingBtn}>
+                      <BsArrowLeft /> Continue shopping
+                    </button>
                   </div>
                 </Link>
                 <div className={styles.clearCartButtonCont}>
@@ -161,7 +163,7 @@ const Cart = () => {
                     className={styles.clearCartButton}
                     onClick={() => handleClearCartButton()}
                   >
-                  <BsFillTrashFill size=".8rem" /> Clear cart
+                    <BsFillTrashFill size=".8rem" /> Clear cart
                   </button>
                 </div>
               </div>
@@ -180,9 +182,12 @@ const Cart = () => {
                   <b className={styles.totalTextTitle}>Total:</b>$
                   {cart.cartTotalAmount}
                 </div>
-                <button className={styles.button}>CHECKOUT NOW!</button>
+                <button className={styles.button} onClick={() => setCash(true)}>
+                  CHECKOUT NOW!
+                </button>
               </div>
             </div>
+            {cash && <OrderDetail total={cart.cartTotalAmount} />}
           </div>
         </div>
       )}
