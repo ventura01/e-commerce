@@ -141,14 +141,6 @@ const Cart = () => {
                     </tr>
                   ))}
                 </tbody>
-                {/*<tfoot className={styles.tFooter}>
-                  <tr className={styles.trFooter}>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                  </tr>
-                  </tfoot>*/}
               </table>
               <div className={styles.buttonsCont}>
                 <Link href="/" passHref>

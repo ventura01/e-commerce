@@ -14,7 +14,7 @@ const OrderDetail = ({ total }) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(clearCart());
-    router.push("/");
+    router.push("/orders/1");
   };
   return (
     <div className={styles.container}>

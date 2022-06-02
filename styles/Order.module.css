@@ -1,0 +1,76 @@
+.container{
+    padding: 50px;
+    display: flex;
+}
+.left{
+    flex: 2;
+}
+.right{
+    flex: 1;
+}
+.table{
+    width: 80%;
+    text-align: left;
+    padding-bottom: 50px;
+}
+.row:last-child{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+.done{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inProgress{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: 1s ease alternate infinite inProgress;
+    -webkit-animation: 1s ease alternate infinite inProgress;
+}
+@keyframes inProgress{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.undone{
+    display: flex;
+    opacity: 0.3;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.undone .checkedIcon, .inProgress .checkedIcon{
+    display: none;
+}
+.statusText{
+    margin: 5px 0;
+}
+.wrapper{
+    width: 50%;
+    max-height: 300px;
+    background-color: #333;
+    color: white;
+    padding: 10px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.totalTextTitle{
+    margin-right: 10px;
+}
+.button{
+    background-color: white;
+    color: teal;
+    height: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: not-allowed;
+}
