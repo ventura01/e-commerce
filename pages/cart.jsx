@@ -1,9 +1,10 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import Image from "next/image";
+import axios from "axios";
 import styles from "../styles/Cart.module.css";
+import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import {
   removeItemFromCart,
@@ -18,6 +19,7 @@ import { MdRemoveShoppingCart } from "react-icons/md";
 import OrderDetail from "../components/OrderDetail";
 
 const Cart = () => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   useEffect(() => {
@@ -37,7 +39,17 @@ const Cart = () => {
     dispatch(clearCart());
   };
   const quantity = useSelector((state) => state.cart.cartTotalQuantity);
-  console.log(quantity);
+  const createOrder = async (data) => {
+    try {
+      const res = await axios.post("http://localhost:3000/api/orders", data);
+      res.status === 201 && router.push("/orders/" + res.data._id);
+      dispatch(clearCart());
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(data);
+  };
+  // console.log(quantity);
   const API_URL = "http://localhost:1337";
   return (
     <Layout>
@@ -179,7 +191,12 @@ const Cart = () => {
                 </button>
               </div>
             </div>
-            {cash && <OrderDetail total={cart.cartTotalAmount} />}
+            {cash && (
+              <OrderDetail
+                cartTotalAmount={cart.cartTotalAmount}
+                createOrder={createOrder}
+              />
+            )}
           </div>
         </div>
       )}

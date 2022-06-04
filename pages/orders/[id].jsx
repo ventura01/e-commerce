@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../../components/Layout";
 import styles from "../../styles/Order.module.css";
+import axios from "axios";
 
 import { FaHandHolding } from "react-icons/fa";
 import {
@@ -10,8 +11,9 @@ import {
   BsFillCheckCircleFill,
 } from "react-icons/bs";
 
-const Order = () => {
-  const status = 0;
+const Order = ({ order }) => {
+  console.log(order);
+  const status = order.status;
   const statusClass = (index) => {
     if (index - status < 1) return styles.done;
     if (index - status === 1) return styles.inProgress;
@@ -27,6 +29,8 @@ const Order = () => {
                 <tr className={styles.trHead}>
                   <th className={styles.thHead}>Order ID</th>
                   <th className={styles.thHead}>Customer</th>
+                  <th className={styles.thHead}>E-mail</th>
+                  <th className={styles.thHead}>Telephone</th>
                   <th className={styles.thHead}>Address</th>
                   <th className={styles.thHead}>Total</th>
                 </tr>
@@ -34,16 +38,24 @@ const Order = () => {
               <tbody className={styles.tbody}>
                 <tr className={styles.trBody}>
                   <td className={styles.tdBody}>
-                    <span className={styles.id}></span>12345
+                    <span className={styles.id}></span>
+                    {order._id}
                   </td>
                   <td className={styles.tdBody}>
-                    <span className={styles.name}></span>John Doe
+                    <span className={styles.name}></span>
+                    {order.customer}
                   </td>
                   <td className={styles.tdBody}>
-                    <span className={styles.address}>Main st. 21</span>
+                    <span className={styles.email}>{order.email}</span>
                   </td>
                   <td className={styles.tdBody}>
-                    <span className={styles.total}>U$321</span>
+                    <span className={styles.telephone}>{order.telephone}</span>
+                  </td>
+                  <td className={styles.tdBody}>
+                    <span className={styles.address}>{order.address}</span>
+                  </td>
+                  <td className={styles.tdBody}>
+                    <span className={styles.total}>U${order.total}</span>
                   </td>
                 </tr>
               </tbody>
@@ -92,13 +104,13 @@ const Order = () => {
           <div className={styles.wrapper}>
             <h2 className={styles.title}>CART TOTAL</h2>
             <div className={styles.totalText}>
-              <b className={styles.totalTextTitle}>Sub-total:</b>$199
+              <b className={styles.totalTextTitle}>Sub-total:</b>${order.total}
             </div>
             <div className={styles.totalText}>
               <b className={styles.totalTextTitle}>Discount:</b>$0.00
             </div>
             <div className={styles.totalText}>
-              <b className={styles.totalTextTitle}>Total:</b>$199
+              <b className={styles.totalTextTitle}>Total:</b>${order.total}
             </div>
             <button disabled className={styles.button}>
               PAID!
@@ -108,6 +120,11 @@ const Order = () => {
       </div>
     </Layout>
   );
+};
+
+export const getServerSideProps = async ({ params }) => {
+  const res = await axios.get(`http://localhost:3000/api/orders/${params.id}`);
+  return { props: { order: res.data } };
 };
 
 export default Order;

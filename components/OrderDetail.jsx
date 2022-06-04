@@ -1,25 +1,31 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router";
 import styles from "../styles/OrderDetail.module.css";
 
-import { useSelector, useDispatch } from "react-redux";
-import { clearCart } from "../redux/cartSlice";
+// import { useSelector, useDispatch } from "react-redux";
+// import { clearCart } from "../redux/cartSlice";
+// import axios from "axios";
 
-const OrderDetail = ({ total }) => {
+const OrderDetail = ({ cartTotalAmount, createOrder }) => {
   const [customer, setCustomer] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
-  const router = useRouter();
-  const dispatch = useDispatch();
+
   const handleClick = () => {
-    dispatch(clearCart());
-    router.push("/orders/1");
+    createOrder({
+      customer,
+      email,
+      // status: 0,
+      address,
+      telephone,
+      total: cartTotalAmount,
+      method: 0,
+    });
   };
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <h1>You will pay ${total} after delivery.</h1>
+        <h1>You will pay ${cartTotalAmount} after delivery.</h1>
         <div className={styles.item}>
           <label htmlFor="name" className={styles.lable}>
             Your name

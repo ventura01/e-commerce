@@ -12,6 +12,16 @@ const OrderSchema = new mongoose.Schema(
       required: true,
       maxlength: 200,
     },
+    email: {
+      type: String,
+      required: true,
+      maxlength: 200,
+    },
+    telephone: {
+      type: String,
+      required: true,
+      maxlength: 12,
+    },
     total: {
       type: Number,
       required: true,
