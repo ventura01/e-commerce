@@ -50,7 +50,6 @@ const Cart = () => {
     console.log(data);
   };
   // console.log(quantity);
-  const API_URL = "http://localhost:1337";
   return (
     <Layout>
       {quantity === 0 ? (
@@ -81,11 +80,11 @@ const Cart = () => {
                 </thead>
                 <tbody className={styles.tbody}>
                   {cart.cartItems.map((product) => (
-                    <tr className={styles.trBody} key={product.id}>
+                    <tr className={styles.trBody} key={product._id}>
                       <td className={styles.tdBody}>
                         <div className={styles.imgContainer}>
                           <Image
-                            src={`${API_URL}${product.attributes.img.data[0].attributes.url}`}
+                            src={product.img}
                             alt=""
                             layout="fill"
                             objectFit="cover"
@@ -94,10 +93,8 @@ const Cart = () => {
                       </td>
                       <td className={styles.tdBody}>
                         <div className={styles.tdInfo}>
-                          <span className={styles.name}>
-                            {product.attributes.title}
-                          </span>
-                          <div className={styles.sizeColorCont}>
+                          <span className={styles.name}>{product.title}</span>
+                          {/*<div className={styles.sizeColorCont}>
                             <div>
                               Size:{" "}
                               <span className={styles.size}>
@@ -110,13 +107,11 @@ const Cart = () => {
                                 {product.color}
                               </span>
                             </div>
-                          </div>
+                  </div>*/}
                         </div>
                       </td>
                       <td className={styles.tdBody}>
-                        <span className={styles.price}>
-                          U${product.attributes.price}
-                        </span>
+                        <span className={styles.price}>U${product.price}</span>
                       </td>
                       <td className={styles.tdBody}>
                         <div className={styles.qtyContButton}>
@@ -137,7 +132,7 @@ const Cart = () => {
                       </td>
                       <td className={styles.tdBody}>
                         <span className={styles.total}>
-                          U${product.attributes.price * product.quantity}
+                          U${product.price * product.quantity}
                         </span>
                       </td>
                       <td className={styles.tdBody}>

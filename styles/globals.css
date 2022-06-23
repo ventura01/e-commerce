@@ -1,6 +1,7 @@
 :root{
-  --primary-color: #242424;
-  --secundary-color: #b7903c;
+  --primary-color: #ffdcae;
+  --secundary-color: #ff9100;
+  --terciary-color: #b83400;
 }
 html,
 body {
@@ -9,7 +10,7 @@ body {
   /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
     font-family: 'Nunito', sans-serif;
-    background-color: #efefef;
+    background-color: #ffdcae;
 }
 /* Mantener el FOOTER siempre abajo */
 

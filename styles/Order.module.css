@@ -3,7 +3,14 @@
     display: flex;
 }
 .left{
+    background-color: white;
+    padding: 20px;
     flex: 2;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }
 .right{
     flex: 1;
@@ -62,6 +69,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }
 .totalTextTitle{
     margin-right: 10px;
@@ -69,8 +81,13 @@
 .button{
     background-color: white;
     color: teal;
+    border-radius: 25px;
     height: 30px;
     font-weight: bold;
     margin-top: 20px;
     cursor: not-allowed;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }

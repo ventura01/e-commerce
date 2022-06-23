@@ -1,6 +1,7 @@
 .container{
-    background-color: lightgray;
+    background-color: var(--primary-color);
     padding: 30px;
+    border-top: 1px dotted var(--terciary-color);
 }
 .wrapper{
     width: 1220px;
@@ -13,6 +14,10 @@
     list-style: none;
     /* font-weight: 600; */
     display: flex;
+}
+.text{
+    color: var(--terciary-color);
+
 }
 .listItem{
     margin-right: 30px;

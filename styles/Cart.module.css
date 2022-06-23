@@ -25,6 +25,12 @@
 }
 .left{
     flex: 2;
+    background-color: white;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
 }
 .right{
     flex: 1;
@@ -32,6 +38,7 @@
 .headerText{
     font-size: 48px;
     font-weight: 900;
+    color: #333;
 }
 .table{
     width: 100%;
@@ -79,13 +86,18 @@
 .wrapper{
     width: 90%;
     max-height: 300px;
-    background-color: #333;
+    background-color: var(--terciary-color);
     padding: 50px;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: white;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
 }
 .title{
     font-weight: 900;
@@ -151,27 +163,29 @@
     border: 1px  solid teal;
     padding: 10px 15px;
     cursor: pointer;
+    background-color: transparent;
     color: gray;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }
 .continueShoppingBtn:hover{
     background-color: teal;
     color: white;
 }
 .clearCartButton{
+    background-color: transparent;
     border: 1px  solid red;
     padding: 10px 15px;
     cursor: pointer;
     color: gray;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }
 .clearCartButton:hover{
     background-color: red;

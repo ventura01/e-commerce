@@ -9,6 +9,7 @@
     align-items: center;
     background-color: rgba(128, 128, 128, 0.562);
     z-index: 999;
+    background-color: white;
 }
 .wrapper{
     width: 500px;

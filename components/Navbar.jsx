@@ -16,7 +16,7 @@ const Navbar = () => {
           <Link href="/" passHref>
             <a>
               <h3 className={styles.logo}>
-                <span className={styles.logoText}>GitHub</span>shop
+                <span className={styles.logoText}>Donnuts</span>shop
               </h3>
             </a>
           </Link>
@@ -39,11 +39,11 @@ const Navbar = () => {
             <div className={styles.cart}>
               {cartTotalQuantity >= 1 ? (
                 <div>
-                  <MdShoppingCart color="white" size="1.25rem" />
+                  <MdShoppingCart color="#b83400" size="1.25rem" />
                   <div className={styles.cartCounter}>{cartTotalQuantity}</div>
                 </div>
               ) : (
-                <MdShoppingCart color="white" size="1.25rem" />
+                <MdShoppingCart color="#b83400" size="1.25rem" />
               )}
             </div>
           </Link>

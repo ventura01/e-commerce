@@ -14,11 +14,11 @@
     display: flex;
 }
 .logoText{
-    color: white;
+    color: var(--terciary-color);
     font-weight: 300;
 }
 .logo{
-    color: white;
+    color: var(--terciary-color);
 }
 .item{
     flex: 1;
@@ -41,7 +41,7 @@
 }
 .menuItemLink{
     margin-right: 20px;
-    color: white;
+    color: var(--terciary-color);
 }
 .cart{
     font-weight: 500;

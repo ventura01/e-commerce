@@ -1,0 +1,61 @@
+.container{
+    padding: 50px;
+    display: flex;
+}
+.left{
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+}
+.right{
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+}
+.table{
+    border-spacing: 20px;
+    width: 90%;
+    text-align: left;
+    border-collapse: collapse;
+}
+.table .thead .trHead .thHead,
+.table .tbody .trBody .tbody{
+    padding: 20px 15px;
+}
+.table .tbody .trBody:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+.table .tbody .trBody:last-of-type{
+    border-bottom: 2px solid #c7c7c7;
+}
+.table .tbody .trBody{ border-bottom: 1px solid #dddddd;}
+.button{
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.buttonNext{
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    background-color: peru;
+    cursor: pointer;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.button:first-child{
+    background-color: teal;
+    margin-right: 10px;
+}
+.button:last-child{
+    background-color: crimson;
+}
